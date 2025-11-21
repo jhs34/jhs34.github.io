@@ -18,6 +18,9 @@ body {
     flex-direction: column;
     align-items: center;
     gap: 2rem;
+    width: 100%;
+    padding: 0 20px;
+    box-sizing: border-box;
 }
 
 /* Liquid Glass Text Effect */
@@ -90,6 +93,9 @@ body {
     /* Prevent selection */
     user-select: none;
     -webkit-user-select: none;
+
+    /* Remove mobile tap highlight */
+    -webkit-tap-highlight-color: transparent;
 }
 
 .glass-btn:hover {
@@ -105,4 +111,25 @@ body {
     /* Quick compress */
     transform: scale(0.9);
     transition: transform 0.1s ease;
+}
+
+/* Mobile Responsive Styles */
+@media (max-width: 768px) {
+    .liquid-text {
+        font-size: 4rem;
+        /* Reduce font size for mobile */
+        padding: 0 20px;
+        letter-spacing: 2px;
+        border-radius: 15px;
+    }
+
+    .glass-btn {
+        width: 100px;
+        height: 100px;
+        font-size: 2rem;
+    }
+
+    .container {
+        gap: 1.5rem;
+    }
 }
