@@ -5,6 +5,7 @@
     overflow-y: auto;
     overflow-x: hidden;
     scroll-behavior: smooth;
+    -webkit-tap-highlight-color: transparent;
 }
 
 .app-header {
@@ -124,6 +125,7 @@ h1 {
     transition: all 0.3s ease;
     text-transform: uppercase;
     letter-spacing: 1px;
+    -webkit-tap-highlight-color: transparent;
 }
 
 .glass-button:hover {
@@ -144,7 +146,11 @@ h1 {
     align-items: center;
     justify-content: center;
     z-index: 100;
-    animation: fadeIn 0.3s ease;
+    animation: fadeIn 0.3s ease forwards;
+}
+
+.modal-overlay.closing {
+    animation: fadeOut 0.3s ease forwards;
 }
 
 .glass-modal {
@@ -159,8 +165,12 @@ h1 {
     position: relative;
     color: white;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
-    animation: slideUp 0.3s ease;
+    animation: slideUp 0.3s ease forwards;
     box-sizing: border-box;
+}
+
+.glass-modal.closing {
+    animation: slideDown 0.3s ease forwards;
 }
 
 .project-list {
@@ -199,6 +209,7 @@ h1 {
     font-size: 24px;
     cursor: pointer;
     transition: color 0.3s;
+    -webkit-tap-highlight-color: transparent;
 }
 
 .close-button:hover {
@@ -215,6 +226,16 @@ h1 {
     }
 }
 
+@keyframes fadeOut {
+    from {
+        opacity: 1;
+    }
+
+    to {
+        opacity: 0;
+    }
+}
+
 @keyframes slideUp {
     from {
         transform: translateY(20px);
@@ -224,5 +245,17 @@ h1 {
     to {
         transform: translateY(0);
         opacity: 1;
+    }
+}
+
+@keyframes slideDown {
+    from {
+        transform: translateY(0);
+        opacity: 1;
+    }
+
+    to {
+        transform: translateY(20px);
+        opacity: 0;
     }
 }

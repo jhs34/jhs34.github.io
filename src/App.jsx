@@ -5,9 +5,19 @@ import logo from './assets/logo.png';
 
 function App() {
     const [showModal, setShowModal] = useState(false);
+    const [isClosing, setIsClosing] = useState(false);
 
-    const toggleModal = () => {
-        setShowModal(!showModal);
+    const openModal = () => {
+        setShowModal(true);
+        setIsClosing(false);
+    };
+
+    const closeModal = () => {
+        setIsClosing(true);
+        setTimeout(() => {
+            setShowModal(false);
+            setIsClosing(false);
+        }, 300); // Match animation duration
     };
 
     return (
@@ -35,14 +45,14 @@ function App() {
             </div>
 
             <div className="projects-section">
-                <button className="glass-button google-sans-flex" onClick={toggleModal}>
+                <button className="glass-button google-sans-flex" onClick={openModal}>
                     Projects
                 </button>
             </div>
 
             {showModal && (
-                <div className="modal-overlay" onClick={toggleModal}>
-                    <div className="glass-modal" onClick={(e) => e.stopPropagation()}>
+                <div className={`modal-overlay ${isClosing ? 'closing' : ''}`} onClick={closeModal}>
+                    <div className={`glass-modal ${isClosing ? 'closing' : ''}`} onClick={(e) => e.stopPropagation()}>
                         <h2 className="google-sans-flex">Projects</h2>
                         <ul className="project-list">
                             <li>
@@ -52,7 +62,7 @@ function App() {
                             </li>
                             {/* Add more projects here */}
                         </ul>
-                        <button className="close-button" onClick={toggleModal}>×</button>
+                        <button className="close-button" onClick={closeModal}>×</button>
                     </div>
                 </div>
             )}
