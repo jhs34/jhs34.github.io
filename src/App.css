@@ -1,8 +1,10 @@
 .app-container {
     position: relative;
     width: 100%;
-    height: 100%;
-    overflow: hidden;
+    height: 100vh;
+    overflow-y: auto;
+    overflow-x: hidden;
+    scroll-behavior: smooth;
 }
 
 .app-header {
@@ -17,7 +19,7 @@
     border-radius: 35px;
     display: flex;
     align-items: center;
-    padding: 0 30px;
+    padding: 0 20px;
     z-index: 10;
     box-sizing: border-box;
 }
@@ -47,7 +49,7 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    height: 100%;
+    min-height: 100vh;
     color: white;
     text-align: center;
 }
@@ -63,4 +65,164 @@ h1 {
     font-size: 1.5em;
     font-weight: 300;
     opacity: 0.9;
+}
+
+.scroll-indicator {
+    position: absolute;
+    bottom: 40px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    opacity: 0.8;
+    animation: bounce 2s infinite;
+}
+
+.arrow {
+    font-size: 24px;
+}
+
+@keyframes bounce {
+
+    0%,
+    20%,
+    50%,
+    80%,
+    100% {
+        transform: translateY(0);
+    }
+
+    40% {
+        transform: translateY(-10px);
+    }
+
+    60% {
+        transform: translateY(-5px);
+    }
+}
+
+.projects-section {
+    min-height: 50vh;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    position: relative;
+    z-index: 1;
+    padding-top: 50px;
+}
+
+.glass-button {
+    padding: 15px 40px;
+    font-size: 1.2rem;
+    color: white;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 30px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.glass-button:hover {
+    background: rgba(255, 255, 255, 0.2);
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(5px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 100;
+    animation: fadeIn 0.3s ease;
+}
+
+.glass-modal {
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    border-radius: 20px;
+    padding: 40px;
+    width: 80%;
+    max-width: 500px;
+    position: relative;
+    color: white;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    animation: slideUp 0.3s ease;
+    box-sizing: border-box;
+}
+
+.project-list {
+    list-style: none;
+    padding: 0;
+    margin-top: 20px;
+}
+
+.project-list li {
+    margin-bottom: 15px;
+}
+
+.project-link {
+    display: block;
+    padding: 15px;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    color: white;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.project-link:hover {
+    background: rgba(255, 255, 255, 0.15);
+    transform: translateX(5px);
+}
+
+.close-button {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    background: none;
+    border: none;
+    color: rgba(255, 255, 255, 0.6);
+    font-size: 24px;
+    cursor: pointer;
+    transition: color 0.3s;
+}
+
+.close-button:hover {
+    color: white;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes slideUp {
+    from {
+        transform: translateY(20px);
+        opacity: 0;
+    }
+
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
 }

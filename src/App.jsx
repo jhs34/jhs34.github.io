@@ -1,8 +1,15 @@
+import { useState } from 'react';
 import Aurora from './Aurora';
 import './App.css';
 import logo from './assets/logo.png';
 
 function App() {
+    const [showModal, setShowModal] = useState(false);
+
+    const toggleModal = () => {
+        setShowModal(!showModal);
+    };
+
     return (
         <div className="app-container">
             <header className="app-header">
@@ -20,7 +27,35 @@ function App() {
             <div className="content">
                 <h1>Welcome</h1>
                 <p className="subtitle noto-sans-kr">환영합니다</p>
+
+                <div className="scroll-indicator">
+                    <p className="noto-sans-kr">아래로 스크롤하여 프로젝트 보기</p>
+                    <div className="arrow">↓</div>
+                </div>
             </div>
+
+            <div className="projects-section">
+                <button className="glass-button google-sans-flex" onClick={toggleModal}>
+                    Projects
+                </button>
+            </div>
+
+            {showModal && (
+                <div className="modal-overlay" onClick={toggleModal}>
+                    <div className="glass-modal" onClick={(e) => e.stopPropagation()}>
+                        <h2 className="google-sans-flex">Projects</h2>
+                        <ul className="project-list">
+                            <li>
+                                <a href="/counter" className="project-link noto-sans-kr">
+                                    Counter (카운터)
+                                </a>
+                            </li>
+                            {/* Add more projects here */}
+                        </ul>
+                        <button className="close-button" onClick={toggleModal}>×</button>
+                    </div>
+                </div>
+            )}
         </div>
     );
 }
