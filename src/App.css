@@ -20,8 +20,9 @@
     border-radius: 35px;
     display: flex;
     align-items: center;
+    justify-content: space-between;
     padding: 0 20px;
-    z-index: 10;
+    z-index: 100;
     box-sizing: border-box;
 }
 
@@ -32,7 +33,7 @@
 }
 
 .app-logo {
-    width: 40px;
+    width: 50px;
     height: auto;
 }
 
@@ -41,6 +42,81 @@
     font-weight: 700;
     color: white;
     letter-spacing: 0.5px;
+}
+
+.menu-button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    width: 30px;
+    height: 20px;
+    position: relative;
+    z-index: 101;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 0;
+    -webkit-tap-highlight-color: transparent;
+    margin-right: 5px;
+}
+
+.menu-button span {
+    display: block;
+    width: 100%;
+    height: 2px;
+    background-color: white;
+    border-radius: 2px;
+    transition: all 0.3s ease;
+}
+
+.menu-button.open span:nth-child(1) {
+    transform: translateY(9px) rotate(45deg);
+}
+
+.menu-button.open span:nth-child(2) {
+    opacity: 0;
+}
+
+.menu-button.open span:nth-child(3) {
+    transform: translateY(-9px) rotate(-45deg);
+}
+
+.glass-menu {
+    position: absolute;
+    top: 80px;
+    right: 0;
+    width: 200px;
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    border-radius: 20px;
+    padding: 20px;
+    animation: slideIn 0.3s ease forwards;
+    transform-origin: top right;
+}
+
+.glass-menu.closing {
+    animation: slideOut 0.3s ease forwards;
+}
+
+.menu-items {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.menu-items li {
+    color: white;
+    font-size: 1.2rem;
+    padding: 10px 15px;
+    cursor: pointer;
+    transition: all 0.2s;
+    border-radius: 10px;
+}
+
+.menu-items li:hover {
+    background: rgba(255, 255, 255, 0.1);
 }
 
 .content {
@@ -258,4 +334,289 @@ h1 {
         transform: translateY(20px);
         opacity: 0;
     }
+}
+
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: scale(0.9) translateY(-10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1) translateY(0);
+    }
+}
+
+@keyframes slideOut {
+    from {
+        opacity: 1;
+        transform: scale(1) translateY(0);
+    }
+
+    to {
+        opacity: 0;
+        transform: scale(0.9) translateY(-10px);
+    }
+}
+
+/* About Modal Styles */
+.about-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+    text-align: center;
+}
+
+.about-header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+}
+
+.about-logo {
+    width: 200px;
+    height: auto;
+}
+
+.about-title {
+    font-size: 1.4rem;
+    font-weight: 800;
+    margin-top: -40px;
+}
+
+.about-body {
+    width: 100%;
+}
+
+.github-link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+    color: white;
+    text-decoration: none;
+    font-size: 1.5rem;
+    padding: 10px;
+    background: none;
+    border: none;
+    transition: all 0.3s ease;
+}
+
+.github-link:hover {
+    transform: scale(1.05);
+    opacity: 0.8;
+}
+
+height: 100%;
+background: rgba(0, 0, 0, 0.6);
+backdrop-filter: blur(5px);
+display: flex;
+align-items: center;
+justify-content: center;
+z-index: 100;
+animation: fadeIn 0.3s ease forwards;
+}
+
+.modal-overlay.closing {
+    animation: fadeOut 0.3s ease forwards;
+}
+
+.glass-modal {
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    border-radius: 20px;
+    padding: 40px;
+    width: 80%;
+    max-width: 500px;
+    position: relative;
+    color: white;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    animation: slideUp 0.3s ease forwards;
+    box-sizing: border-box;
+}
+
+.glass-modal.closing {
+    animation: slideDown 0.3s ease forwards;
+}
+
+.project-list {
+    list-style: none;
+    padding: 0;
+    margin-top: 20px;
+}
+
+.project-list li {
+    margin-bottom: 15px;
+}
+
+.project-link {
+    display: block;
+    padding: 15px;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    color: white;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.project-link:hover {
+    background: rgba(255, 255, 255, 0.15);
+    transform: translateX(5px);
+}
+
+.close-button {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    background: none;
+    border: none;
+    color: rgba(255, 255, 255, 0.6);
+    font-size: 24px;
+    cursor: pointer;
+    transition: color 0.3s;
+    -webkit-tap-highlight-color: transparent;
+}
+
+.close-button:hover {
+    color: white;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes fadeOut {
+    from {
+        opacity: 1;
+    }
+
+    to {
+        opacity: 0;
+    }
+}
+
+@keyframes slideUp {
+    from {
+        transform: translateY(20px);
+        opacity: 0;
+    }
+
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+@keyframes slideDown {
+    from {
+        transform: translateY(0);
+        opacity: 1;
+    }
+
+    to {
+        transform: translateY(20px);
+        opacity: 0;
+    }
+}
+
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: scale(0.9) translateY(-10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1) translateY(0);
+    }
+}
+
+@keyframes slideOut {
+    from {
+        opacity: 1;
+        transform: scale(1) translateY(0);
+    }
+
+    to {
+        opacity: 0;
+        transform: scale(0.9) translateY(-10px);
+    }
+}
+
+/* About Modal Styles */
+.about-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+    text-align: center;
+}
+
+.about-header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+}
+
+.about-logo {
+    width: 200px;
+    height: auto;
+}
+
+.about-title {
+    font-size: 1.4rem;
+    font-weight: 800;
+    margin-top: -40px;
+}
+
+.about-body {
+    width: 100%;
+}
+
+.github-link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+    color: white;
+    text-decoration: none;
+    font-size: 1.5rem;
+    padding: 10px;
+    background: none;
+    border: none;
+    transition: all 0.3s ease;
+}
+
+.github-link:hover {
+    transform: scale(1.05);
+    opacity: 0.8;
+}
+
+.github-icon {
+    width: 32px;
+    height: 32px;
+}
+
+.github-username {
+    font-weight: 400;
+    letter-spacing: 1px;
+}
+
+.about-footer {
+    margin-top: 20px;
+    font-size: 0.8rem;
+    opacity: 0.6;
 }
