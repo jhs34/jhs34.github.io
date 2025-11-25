@@ -405,25 +405,6 @@ h1 {
     transition: all 0.3s ease;
 }
 
-.github-link:hover {
-    transform: scale(1.05);
-    opacity: 0.8;
-}
-
-height: 100%;
-background: rgba(0, 0, 0, 0.6);
-backdrop-filter: blur(5px);
-display: flex;
-align-items: center;
-justify-content: center;
-z-index: 100;
-animation: fadeIn 0.3s ease forwards;
-}
-
-.modal-overlay.closing {
-    animation: fadeOut 0.3s ease forwards;
-}
-
 .glass-modal {
     background: rgba(255, 255, 255, 0.15);
     backdrop-filter: blur(20px);
