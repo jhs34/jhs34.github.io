@@ -106,6 +106,11 @@ function App() {
                                             Counter (카운터)
                                         </a>
                                     </li>
+                                    <li>
+                                        <a href="/vocab" className="project-link google-sans-flex" target="_blank" rel="noopener noreferrer">
+                                            VocabFlow
+                                        </a>
+                                    </li>
                                     {/* Add more projects here */}
                                 </ul>
                             </>
