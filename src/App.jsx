@@ -101,11 +101,7 @@ function App() {
                             <>
                                 <h2 className="google-sans-flex">Projects</h2>
                                 <ul className="project-list">
-                                    <li>
-                                        <a href="/counter" className="project-link noto-sans-kr">
-                                            Counter (카운터)
-                                        </a>
-                                    </li>
+
                                     <li>
                                         <a href="/vocab" className="project-link google-sans-flex" target="_blank" rel="noopener noreferrer">
                                             VocabFlow
