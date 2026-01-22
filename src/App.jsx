@@ -103,7 +103,7 @@ function App() {
                                 <ul className="project-list">
 
                                     <li>
-                                        <a href="/vocab" className="project-link google-sans-flex" target="_blank" rel="noopener noreferrer">
+                                        <a href="https://jhs34.github.io/vocabflow/" className="project-link google-sans-flex" target="_blank" rel="noopener noreferrer">
                                             VocabFlow
                                         </a>
                                     </li>
