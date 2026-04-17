@@ -108,7 +108,7 @@ function App() {
                                         </a>
                                     </li>
                                     <li>
-                                        <a href="https://jhs34.github.io/lyric/" className="project-link google-sans-flex" target="_blank" rel="noopener noreferrer">
+                                        <a href="https://jhs34.github.io/lyrictify/" className="project-link google-sans-flex" target="_blank" rel="noopener noreferrer">
                                             Lyrictify
                                         </a>
                                     </li>
