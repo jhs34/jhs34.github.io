@@ -112,6 +112,11 @@ function App() {
                                             Lyrictify
                                         </a>
                                     </li>
+                                    <li>
+                                        <a href="https://jhs34.github.io/blurify/" className="project-link google-sans-flex" target="_blank" rel="noopener noreferrer">
+                                            Blurify
+                                        </a>
+                                    </li>
                                     {/* Add more projects here */}
                                 </ul>
                             </>
