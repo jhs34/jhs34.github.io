@@ -117,6 +117,11 @@ function App() {
                                             Blurify
                                         </a>
                                     </li>
+                                    <li>
+                                        <a href="https://jhs34.github.io/krhs/" className="project-link google-sans-flex" target="_blank" rel="noopener noreferrer">
+                                            KRHS Dashboard
+                                        </a>
+                                    </li>
                                     {/* Add more projects here */}
                                 </ul>
                             </>
